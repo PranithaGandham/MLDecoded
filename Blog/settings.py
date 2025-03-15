@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-it&g9oad!ao_f=1fhyl^+0#&(lcb+%s8@y#lbs!5%t+5dludr_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ml-decoded-blogs.vercel.app','127.0.0.1']
+ALLOWED_HOSTS = ['ml-decoded-jfvsiifj7-pranithagandhams-projects.vercel.app','127.0.0.1']
 
 
 # Application definition
@@ -87,7 +87,7 @@ DATABASES = {
         'NAME': os.getenv('DB_NAME'),
         'USER': os.getenv('DB_USER'),
         'PASSWORD': os.getenv('DB_PASSWORD'),
-        'HOST': os.getenv('DB_HOST','ml-decoded-jfvsiifj7-pranithagandhams-projects.vercel.app'),
+        'HOST': os.getenv('DB_HOST',),
         'PORT': os.getenv('DB_PORT'),
     }
 }
