@@ -75,13 +75,20 @@ WSGI_APPLICATION = 'Blog.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+from dotenv import load_dotenv
+import os
 
-import dj_database_url
+load_dotenv()  # Load environment variables from .env file
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default="postgresql://ml_decoded_blog_user:xOuQUenyfAy16LoEU5aJjeU4am9saLSJ@dpg-cv7j8bl2ng1s7383kqt0-a.oregon-postgres.render.com/ml_decoded_blog"
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
+    }
 }
 
 # Password validation
@@ -185,5 +192,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'ckabhijeet@gmail.com'
-EMAIL_HOST_PASSWORD = 'Hello@citykonnect123'
+EMAIL_HOST_USER = 'm78613330@gmail.com'
+EMAIL_HOST_PASSWORD = '#Pranitha03'
