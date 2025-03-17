@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-it&g9oad!ao_f=1fhyl^+0#&(lcb+%s8@y#lbs!5%t+5dludr_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ml-decoded-jfvsiifj7-pranithagandhams-projects.vercel.app','127.0.0.1','ml-decoded.vercel.app','ml-decoded-q2frl2acg-pranithagandhams-projects.vercel.app']
+ALLOWED_HOSTS = ['ml-decoded-jfvsiifj7-pranithagandhams-projects.vercel.app','127.0.0.1','ml-decoded.vercel.app','ml-decoded-q2frl2acg-pranithagandhams-projects.vercel.app',
+                 '.vercel.app','ml-decoded-qmql2e6gg-pranithagandhams-projects.vercel.app']
 
 # Application definition
 
