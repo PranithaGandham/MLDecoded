@@ -139,7 +139,7 @@ STATICFILES_DIR = {
 MEDIA_ROOT = os.path.join(BASE_DIR , 'public/static')
 MEDIA_URL = '/media/'
 
-#public\static\css
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -163,10 +163,3 @@ from django.conf import settings
 print(AWS_S3_CUSTOM_DOMAIN)
 # Use S3 for Media Storage (Uploaded Images)
 DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
-
-DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
-MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/media/"
-
-# S3 Storage for Static Files
-STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
-STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/static/"
