@@ -8,6 +8,7 @@
         <div class="w-100 py-5 px-md-5 px-xl-6 position-relative">
          
           <div class="form-validate">
+            <input type="hidden" id="csrf" value="{{ csrf_token }}">
             <div class="form-group">
               <label class="form-label" for="loginUsername"> Email Address</label>
               <input class="form-control" name="loginUsername" id="loginUsername" type="email" placeholder="name@address.com" autocomplete="off" required data-msg="Please enter your email">

@@ -61,34 +61,39 @@ class RegisterView(APIView):
         try:
             data = request.data
 
-            if data.get('username') is None:
-                response['message'] = 'key username not found'
-                raise Exception('key username not found')
+            username = data.get('username')
+            password = data.get('password')
 
-            if data.get('password') is None:
-                response['message'] = 'key password not found'
-                raise Exception('key password not found')
-            check_user = User.objects.filter(
-                username=data.get('username')).first()
-            if check_user:
-                response['message'] = 'username  already taken'
-                raise Exception('username  already taken')
+            if not username:
+                response['message'] = 'Username is required'
+                return Response(response)
 
-            user_obj = User.objects.create(email=data.get('username'),
-                                           username=data.get('username'))
-            user_obj.set_password(data.get('password'))
-            user_obj.save()
+            if not password:
+                response['message'] = 'Password is required'
+                return Response(response)
+
+            # Check if user exists
+            if User.objects.filter(username=username).exists():
+                response['message'] = 'Username already taken'
+                return Response(response)
+
+            if User.objects.filter(email=username).exists():
+                response['message'] = 'Email already registered'
+                return Response(response)
+
+            # Create user
+            user_obj = User.objects.create_user(username=username, email=username, password=password)
             token = generate_random_string(20)
-            # set verified user
-            Profile.objects.create(user=user_obj, token=token,
-                                   is_verified=True)
-            # send_mail_to_user(token , data.get('username'))
-            response['message'] = 'User created '
+
+            # Set verified user
+            Profile.objects.create(user=user_obj, token=token, is_verified=True)
+
+            response['message'] = 'User created successfully'
             response['status'] = 200
         except Exception as e:
             print(e)
+            response['message'] = str(e)
 
         return Response(response)
-
 
 RegisterView = RegisterView.as_view()
